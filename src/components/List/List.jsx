@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, Select } from '@material-ui/core';
 import useStyles from './styles';
 import PlaceDetails from '../PlaceDetails/PlaceDetails';
-const List = ({places}) => {
+const List = ({places, childClicked}) => {
     const classes = useStyles();
     const [type, setType] = useState('restaurants');
-    const [rating, setRating] = useState('0');
+    const [rating, setRating] = useState('');
+    useEffect(()=>{
+
+    },[places])
 
     return (
         <div className={classes.container}>
