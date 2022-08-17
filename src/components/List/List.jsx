@@ -45,7 +45,6 @@ const List = ({ places, childClicked, isLoading, type, setType, rating, setRatin
                                     place={place}
                                     selected={Number(childClicked) === i}
                                     refProp={elRefs[i]}
-                                    teste={String(childClicked + "  " + i)}
                                 />
                             </Grid>
                         ))}
