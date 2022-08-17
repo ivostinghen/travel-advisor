@@ -8,7 +8,6 @@ import useStyles from './styles';
 
 const PlaceDetails = ({ place, selected, refProp,teste }) => {
     const classes = useStyles()
-
     if(selected){
         console.log(selected);
         console.log("PlaceDetails clicked: " + teste);
