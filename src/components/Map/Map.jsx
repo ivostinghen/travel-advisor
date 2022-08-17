@@ -12,20 +12,17 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked }
         <div className={classes.mapContainer}>
             <GoogleMapReact
                 bootstrapURLKeys={{ key: 'AIzaSyCfCHlcbg4JEYZlpgFZOhwI2nU922ag0Hw' }}
-                defaultCenter={coordinates}
                 center={coordinates}
+                // defaultCenter={coordinates}
                 defaultZoom={14}
                 margin={[50, 50, 50, 50]}
                 options={''}
                 onChange={(e) => {
-                    console.log("Onchange: ");
-                    console.log(e);
                     setCoordinates({ lat: e.center.lat, lng: e.center.lng });
                     setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
                 }}
-                onChildClick={(child)=>{
-                    setChildClicked(child)
-                }}
+                onChildClick={(child) => { setChildClicked(child) }
+                }
             >
                 {places?.map((place, i) => (
                     <div
@@ -47,8 +44,7 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked }
                                         src={place.photo ? place.photo.images.large.url : 'https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg'}
                                         alt={place.name}
                                     />
-                                    <Rating size="small" value={Number(place.rating)} readonly />
-
+                                    <Rating size="small" value={Number(place.rating)} readOnly />
                                 </Paper>
                             )
                         }
