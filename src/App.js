@@ -23,15 +23,15 @@ const App = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        if(bounds && Object.keys(bounds).length !== 0){
-            getPlacesData(type, bounds.sw, bounds.ne).then((data) => {
+        if(Object.keys(bounds).length !== 0){
+            getPlacesData(type, bounds.sw, bounds.ne)
+             .then((data) => {
                 setFilteredPlaces([])
-                setPlaces(data);
+                setPlaces(data?.filter((place) => place.name && place.num_reviews > 0));
                 setIsLoading(false);
             })
         }
-    }, [type, coordinates, bounds])
-    // }, [])
+    }, [type, bounds])
 
     useEffect(()=>{
         const filteredPlaces = places.filter((place=> place.rating > rating))
