@@ -6,25 +6,10 @@ import Rating from '@material-ui/lab/Rating';
 
 import useStyles from './styles';
 
-const PlaceDetails = ({ place, selected, refProp,teste }) => {
+const PlaceDetails = ({ place, selected, refProp }) => {
     const classes = useStyles()
-    if(selected){
-        console.log(selected);
-        console.log("PlaceDetails clicked: " + teste);
-        console.log("RefProp: " + refProp);
-        console.log("Current: " + refProp?.current);
-        refProp?.current?.scrollIntoView({behavior:"smooth", block:"start"})
-    }
-
-    useEffect(()=>{
-        if(selected){
-            console.log(selected);
-            console.log("PlaceDetails clicked: " + teste);
-            console.log("RefProp: " + refProp);
-            console.log("Current: " + refProp?.current);
-            refProp?.current?.scrollIntoView({behavior:"smooth", block:"start"})
-        }
-    }, [refProp])
+    
+    if(selected)refProp?.current?.scrollIntoView({behavior:"smooth", block:"start"})
     
     return (
         <Card elevation={6}>
